@@ -1,0 +1,119 @@
+import { motion } from 'framer-motion';
+import './Projects.css';
+import tbc1 from '../assets/Tbc Tracker.png';
+import tbc2 from '../assets/Tbc - tracker 2.png';
+import invest1 from '../assets/home.png';
+import invest2 from '../assets/invest page.png';
+import wudi1 from '../assets/Home-wudi.png';
+import wudi2 from '../assets/Awal-wudi.png';
+import roompens from '../assets/Roompens.png';
+
+const projects = [
+  {
+    id: 1,
+    title: 'Wudi.',
+    desc: 'Task & Project Management App available on Google Play. Designed a comprehensive task management application to boost productivity for individuals and teams through seamless organization.',
+    features: ['UI/UX Design', 'Task Management', 'Mobile App'],
+    link: '#',
+    images: [wudi1, wudi2]
+  },
+  {
+    id: 2,
+    title: 'Invest.aja',
+    desc: 'An investment and financial platform concept. Led the design team to create an intuitive and accessible interface for novice and experienced investors alike.',
+    features: ['UI/UX Design', 'Team Leadership', 'Fintech'],
+    link: '#',
+    images: [invest1, invest2]
+  },
+  {
+    id: 3,
+    title: 'TBC Tracker',
+    desc: 'A health companion app to assist patients in their recovery journey, focusing on consistency, medication tracking, and daily motivational support.',
+    features: ['UI/UX Design', 'Health Tech', 'Symptom Tracking'],
+    link: '#',
+    images: [tbc1, tbc2]
+  },
+  {
+    id: 4,
+    title: 'RoomPens Website',
+    desc: 'A streamlined web application for booking classes and managing room schedules within the campus environment. Designed to simplify the reservation process for students and lecturers.',
+    features: ['UI/UX Design', 'Web Application', 'Booking System'],
+    link: '#',
+    images: [roompens]
+  }
+];
+
+const Projects = () => {
+  return (
+    <section id="projects">
+      <div className="container">
+        <motion.div 
+          className="section-header"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2>Selected Projects.</h2>
+        </motion.div>
+        
+        <div className="projects-grid" style={{ perspective: '2000px' }}>
+          {projects.map((project, index) => (
+            <motion.div 
+              key={project.id}
+              className="project-card"
+              initial={{ 
+                opacity: 0, 
+                x: index % 2 === 0 ? -300 : 300, 
+                y: 150,
+                rotateY: index % 2 === 0 ? -30 : 30,
+                rotateZ: index % 2 === 0 ? -5 : 5,
+                scale: 0.7
+              }}
+              whileInView={{ 
+                opacity: 1, 
+                x: 0, 
+                y: 0,
+                rotateY: 0,
+                rotateZ: 0,
+                scale: 1
+              }}
+              viewport={{ once: false, amount: 0.2 }}
+              transition={{ 
+                type: "spring",
+                stiffness: 50,
+                damping: 15,
+                mass: 1.2,
+                delay: 0.1
+              }}
+            >
+              <div className="project-content">
+                <h3 className="project-title">{project.title}</h3>
+                <p className="project-desc">{project.desc}</p>
+                <ul className="project-features">
+                  {project.features.map((feature, i) => (
+                    <li key={i}>{feature}</li>
+                  ))}
+                </ul>
+                <a href={project.link} className="btn btn-secondary">View Case Study</a>
+              </div>
+              <div className="project-visual">
+                {project.images && project.images.length > 0 ? (
+                  <div className="project-images-container">
+                    {project.images.map((img, i) => (
+                      <img key={i} src={img} alt={`${project.title} screenshot ${i+1}`} className={`project-img img-${i}`} />
+                    ))}
+                  </div>
+                ) : (
+                  <div className="mockup-shape"></div>
+                )}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Projects;
