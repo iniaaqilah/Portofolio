@@ -14,7 +14,7 @@ const projects = [
     title: 'Wudi.',
     desc: 'Task & Project Management App available on Google Play. Designed a comprehensive task management application to boost productivity for individuals and teams through seamless organization.',
     features: ['UI/UX Design', 'Task Management', 'Mobile App'],
-    link: '#',
+    link: 'https://play.google.com/store/apps/details?id=com.pdbl.wudi&hl=id',
     images: [wudi1, wudi2]
   },
   {
@@ -22,7 +22,7 @@ const projects = [
     title: 'Invest.aja',
     desc: 'An investment and financial platform concept. Led the design team to create an intuitive and accessible interface for novice and experienced investors alike.',
     features: ['UI/UX Design', 'Team Leadership', 'Fintech'],
-    link: '#',
+    link: 'https://docs.google.com/document/d/13ocGjWGZeo9jRGq6-WmgdaUqnpsLxVPA/edit?usp=sharing&ouid=105684600472687024898&rtpof=true&sd=true',
     images: [invest1, invest2]
   },
   {
@@ -30,7 +30,7 @@ const projects = [
     title: 'TBC Tracker',
     desc: 'A health companion app to assist patients in their recovery journey, focusing on consistency, medication tracking, and daily motivational support.',
     features: ['UI/UX Design', 'Health Tech', 'Symptom Tracking'],
-    link: '#',
+    link: 'https://drive.google.com/file/d/1yr7ojFozn1gHR2E8d3YfG6VS2-lvoeZz/view?usp=drive_link',
     images: [tbc1, tbc2]
   },
   {
@@ -38,7 +38,7 @@ const projects = [
     title: 'RoomPens Website',
     desc: 'A streamlined web application for booking classes and managing room schedules within the campus environment. Designed to simplify the reservation process for students and lecturers.',
     features: ['UI/UX Design', 'Web Application', 'Booking System'],
-    link: '#',
+    link: 'https://drive.google.com/file/d/1--LiNPMlvLJf43L7VU-YSuKtWISsHY8C/view?usp=drive_link',
     images: [roompens]
   }
 ];
@@ -95,7 +95,14 @@ const Projects = () => {
                     <li key={i}>{feature}</li>
                   ))}
                 </ul>
-                <a href={project.link} className="btn btn-secondary">View Case Study</a>
+                <a 
+                  href={project.link} 
+                  className="btn btn-secondary"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  View Case Study ↗
+                </a>
               </div>
               <div className="project-visual">
                 {project.images && project.images.length > 0 ? (

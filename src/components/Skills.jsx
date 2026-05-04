@@ -23,7 +23,7 @@ const Skills = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h2>Skills & Expertise</h2>
+          <h2>Skills.</h2>
           <p style={{ marginBottom: '2rem' }}>The tools and disciplines I use to bring ideas to life.</p>
           
           <div className="skills-grid">

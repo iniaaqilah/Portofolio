@@ -22,7 +22,7 @@ const Hero = () => {
               {heroImg ? (
                 <img src={heroImg} alt="Aqilah Salamatuddin" />
               ) : (
-                <User size={40} color="#6366f1" />
+                <User size={40} color="#ff6b6b" />
               )}
             </div>
             <div className="hero-badge">Available for Work</div>

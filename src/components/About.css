@@ -1,11 +1,11 @@
 .about-card {
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(30, 37, 53, 0.55);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   padding: 4rem;
   border-radius: var(--radius);
-  border: 1px solid rgba(255,255,255,0.8);
-  box-shadow: 0 30px 60px -20px rgba(0,0,0,0.05);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 30px 60px -20px rgba(0,0,0,0.4);
   max-width: 900px;
   margin: 0 auto;
 }
