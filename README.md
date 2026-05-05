@@ -24,10 +24,3 @@ I focus on creating clean, modern, and user-friendly interfaces.
 ## 🔗 Live Preview
 👉 [Visit My Portfolio](https://your-link.vercel.app)
 
-
-## ⚙️ Installation
-```bash
-git clone https://github.com/your-username/your-repo.git
-cd your-repo
-npm install
-npm run dev
