@@ -40,6 +40,14 @@ const projects = [
     features: ['UI/UX Design', 'Web Application', 'Booking System'],
     link: 'https://drive.google.com/file/d/1--LiNPMlvLJf43L7VU-YSuKtWISsHY8C/view?usp=drive_link',
     images: [roompens]
+  },
+  {
+    id: 5,
+    title: 'QA Digitalization System - PT Jatim Autocomp Indonesia',
+    desc: 'Mendigitalisasi proses audit genba dari pencatatan manual berbasis kertas menjadi sepenuhnya paperless, serta membangun sistem monitoring defect real-time untuk menggantikan proses manual berbasis Excel.',
+    features: ['Laravel', 'PostgreSQL', 'Tailwind CSS', 'Alpine.js', 'UI/UX Design'],
+    link: '',
+    images: []
   }
 ];
 

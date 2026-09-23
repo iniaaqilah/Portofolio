@@ -3,6 +3,19 @@ import './Experience.css';
 
 const experiences = [
   {
+    id: 10,
+    role: "Intern - QA Digitalization (Design & Frontend Development)",
+    company: "PT Jatim Autocomp Indonesia (JAI)",
+    location: "Pasuruan, Indonesia",
+    duration: "Juni 2026 - Present",
+    description: [
+      "Berkolaborasi dalam tim (2 orang) mengembangkan 2 sistem digitalisasi Quality Assurance berbasis web menggunakan Laravel, PostgreSQL, Tailwind CSS, dan Alpine.js",
+      "Berperan utama di UI/UX design dan frontend development, serta cross-functional membantu pengembangan backend",
+      "MOTTO-audit: mendigitalisasi proses audit genba dari pencatatan manual berbasis kertas menjadi sepenuhnya paperless, mencakup 5S Standard, Change Point Management, dan License System",
+      "Monitoring Defect: sistem pelaporan & monitoring defect real-time untuk area Final Assy dan Pre Assy, menggantikan proses manual berbasis Excel"
+    ]
+  },
+  {
     id: 1,
     role: "Public Relations",
     company: "IAMBSH",
