@@ -67,6 +67,10 @@ const Navbar = () => {
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
       >
         <div className="nav-container">
+          <a href="#hero" className="nav-brand" onClick={(e) => handleClick(e, '#hero')}>
+            Aqilah<span className="text-gradient">.</span>
+          </a>
+
           <ul className="nav-links" onMouseLeave={() => setHoveredLink(null)}>
             {navLinks.map((link) => {
               const isActive = activeSection === link.href.substring(1);

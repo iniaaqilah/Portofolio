@@ -58,7 +58,7 @@
   background: var(--surface);
   backdrop-filter: blur(10px);
   border: 4px solid var(--glass-border);
-  box-shadow: 0 15px 40px rgba(255, 107, 107, 0.2);
+  box-shadow: 0 15px 40px var(--glass-border);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -80,10 +80,34 @@
   100% { transform: rotate(45deg) translateY(100%); }
 }
 
+.profile-img-placeholder.shimmer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, var(--surface) 0%, var(--accent-subtle-12) 50%, var(--surface) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  z-index: 2;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
 .profile-img-placeholder img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: opacity 0.4s ease;
+}
+
+.profile-img-placeholder img.loading {
+  opacity: 0;
+}
+
+.profile-img-placeholder img.loaded {
+  opacity: 1;
 }
 
 .hero-badge {
@@ -103,10 +127,22 @@
   font-size: clamp(3rem, 6vw, 5.5rem);
   line-height: 1.1;
   letter-spacing: -0.04em;
-  margin-bottom: 1.5rem;
+  margin-bottom: var(--space-md);
   font-weight: 700;
   position: relative;
   z-index: 2;
+}
+
+.mask-wrapper {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  padding-bottom: 0.08em;
+}
+
+.mask-inner {
+  display: inline-block;
+  will-change: transform, opacity;
 }
 
 .hero-centered .hero-desc {
@@ -135,5 +171,22 @@
   .hero-actions .btn {
     width: 100%;
   }
-  .floating-badge { display: none; }
+  .floating-badge {
+    display: inline-flex;
+    padding: 0.45rem 0.9rem;
+    font-size: 0.8rem;
+    border-radius: 100px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  }
+  .top-badge {
+    top: 0;
+    left: 0;
+    animation: float 5s ease-in-out infinite;
+  }
+  .bottom-badge {
+    top: 0;
+    right: 0;
+    bottom: auto;
+    animation: float 5s ease-in-out infinite -2.5s;
+  }
 }

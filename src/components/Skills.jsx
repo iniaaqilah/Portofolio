@@ -12,16 +12,43 @@ const skillsList = [
   'Analytical Thinking & Problem Solving'
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.7,
+      ease: [0.16, 1, 0.3, 1],
+      staggerChildren: 0.07,
+      delayChildren: 0.2
+    }
+  }
+};
+
+const tagVariants = {
+  hidden: { opacity: 0, y: 20, scale: 0.92 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.5,
+      ease: [0.16, 1, 0.3, 1]
+    }
+  }
+};
+
 const Skills = () => {
   return (
     <section id="skills">
       <div className="container">
         <motion.div 
           className="skills-container"
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.25 }}
         >
           <h2>Skills.</h2>
           <p style={{ marginBottom: '2rem' }}>The tools and disciplines I use to bring ideas to life.</p>
@@ -31,10 +58,7 @@ const Skills = () => {
               <motion.div 
                 key={index}
                 className="skill-tag"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.1 * index }}
+                variants={tagVariants}
                 whileHover={{ y: -4, scale: 1.05 }}
               >
                 {skill}

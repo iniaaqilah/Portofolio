@@ -2,6 +2,32 @@ import { motion } from 'framer-motion';
 import { Mail } from 'lucide-react';
 import './Contact.css';
 
+const contactContainerVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.7,
+      ease: [0.16, 1, 0.3, 1],
+      staggerChildren: 0.15,
+      delayChildren: 0.1
+    }
+  }
+};
+
+const contactItemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: [0.16, 1, 0.3, 1]
+    }
+  }
+};
+
 const Contact = () => {
   return (
     <>
@@ -9,15 +35,17 @@ const Contact = () => {
         <div className="container">
           <motion.div 
             className="contact-content"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            variants={contactContainerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
           >
-            <h2>Let's create together.</h2>
-            <p>Feel free to reach out if you're looking for a designer, have a question, or just want to connect.</p>
+            <motion.h2 variants={contactItemVariants}>Let's create together.</motion.h2>
+            <motion.p variants={contactItemVariants}>
+              Feel free to reach out if you're looking for a designer, have a question, or just want to connect.
+            </motion.p>
             
-            <div className="contact-links">
+            <motion.div className="contact-links" variants={contactItemVariants}>
               <a href="mailto:iniaaqilah@gmail.com" className="btn btn-primary">
                 Email Me
                 <Mail size={20} />
@@ -25,7 +53,7 @@ const Contact = () => {
               <a href="https://www.linkedin.com/in/aqilah-salamatuddin/" target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
                 LinkedIn Profile
               </a>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </section>

@@ -43,9 +43,17 @@ const projects = [
   },
   {
     id: 5,
-    title: 'QA Digitalization System - PT Jatim Autocomp Indonesia',
-    desc: 'Mendigitalisasi proses audit genba dari pencatatan manual berbasis kertas menjadi sepenuhnya paperless, serta membangun sistem monitoring defect real-time untuk menggantikan proses manual berbasis Excel.',
-    features: ['Laravel', 'PostgreSQL', 'Tailwind CSS', 'Alpine.js', 'UI/UX Design'],
+    title: 'MOTTO-audit',
+    desc: 'Sistem manajemen audit genba paperless untuk PT Jatim Autocomp Indonesia, mendigitalisasi proses audit dari pencatatan manual berbasis kertas. Mencakup 3 pilar: 5S Standard, Change Point Management, dan License System.',
+    features: ['Laravel', 'PostgreSQL', 'Tailwind CSS', 'UI/UX Design'],
+    link: '',
+    images: []
+  },
+  {
+    id: 6,
+    title: 'Monitoring Defect',
+    desc: 'Sistem pelaporan dan monitoring defect real-time untuk area Final Assy dan Pre Assy di PT Jatim Autocomp Indonesia, menggantikan proses manual berbasis Excel.',
+    features: ['Laravel', 'PostgreSQL', 'Alpine.js', 'Tailwind CSS'],
     link: '',
     images: []
   }
@@ -86,7 +94,7 @@ const Projects = () => {
                 rotateZ: 0,
                 scale: 1
               }}
-              viewport={{ once: false, amount: 0.2 }}
+              viewport={{ once: true, amount: 0.15 }}
               transition={{ 
                 type: "spring",
                 stiffness: 50,
@@ -103,14 +111,16 @@ const Projects = () => {
                     <li key={i}>{feature}</li>
                   ))}
                 </ul>
-                <a 
-                  href={project.link} 
-                  className="btn btn-secondary"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  View Case Study ↗
-                </a>
+                {project.link ? (
+                  <a 
+                    href={project.link} 
+                    className="btn btn-secondary"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    View Case Study ↗
+                  </a>
+                ) : null}
               </div>
               <div className="project-visual">
                 {project.images && project.images.length > 0 ? (
@@ -120,7 +130,13 @@ const Projects = () => {
                     ))}
                   </div>
                 ) : (
-                  <div className="mockup-shape"></div>
+                  <div className="mockup-shape">
+                    <div className="mockup-fallback">
+                      <span className="mockup-fallback-badge">Internal System</span>
+                      <h4 className="mockup-fallback-title">{project.title}</h4>
+                      <span className="mockup-fallback-sub">PT Jatim Autocomp Indonesia</span>
+                    </div>
+                  </div>
                 )}
               </div>
             </motion.div>

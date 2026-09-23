@@ -23,7 +23,7 @@
 }
 
 .project-card:hover {
-  box-shadow: 0 40px 80px -30px rgba(255, 107, 107, 0.2), 0 0 0 1px var(--accent-glow);
+  box-shadow: 0 40px 80px -30px var(--glass-border), 0 0 0 1px var(--accent-glow);
   transform: translateY(-8px) scale(1.01);
 }
 
@@ -77,35 +77,79 @@
 }
 
 .mockup-shape {
-  width: 70%;
-  height: 80%;
-  background: linear-gradient(135deg, #1e2535 0%, #141922 100%);
-  border-radius: 24px;
+  width: 75%;
+  height: 85%;
+  background: linear-gradient(135deg, var(--soft-bg) 0%, var(--bg) 100%);
+  border-radius: var(--radius-sm);
   box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-  border: 1px solid rgba(255, 107, 107, 0.12);
+  border: 1px solid var(--border);
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
-.mockup-shape::before {
+.mockup-shape:not(:has(.mockup-fallback))::before {
   content: '';
   position: absolute;
   top: 20px;
   left: 20px;
   right: 20px;
   height: 40px;
-  background: rgba(255, 107, 107, 0.07);
+  background: var(--accent-subtle-7);
   border-radius: 8px;
 }
 
-.mockup-shape::after {
+.mockup-shape:not(:has(.mockup-fallback))::after {
   content: '';
   position: absolute;
   top: 80px;
   left: 20px;
   right: 20px;
   bottom: 20px;
-  background: rgba(255, 107, 107, 0.04);
+  background: var(--accent-subtle-4);
   border-radius: 12px;
+}
+
+.mockup-fallback {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 2rem;
+  text-align: center;
+  background: radial-gradient(circle at center, rgba(255, 107, 107, 0.09) 0%, transparent 70%);
+}
+
+.mockup-fallback-badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--accent-subtle-8);
+  padding: 0.35rem 0.85rem;
+  border-radius: 100px;
+  border: 1px solid var(--accent-subtle-15);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.mockup-fallback-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.mockup-fallback-sub {
+  font-size: 0.85rem;
+  color: var(--text-sec);
 }
 
 .project-card:nth-child(odd) .project-content { order: 2; }
@@ -113,29 +157,29 @@
 
 .project-title {
   font-size: 2.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: var(--space-sm);
   letter-spacing: -0.03em;
 }
 
 .project-desc {
-  margin-bottom: 2rem;
+  margin-bottom: var(--space-md);
 }
 
 .project-features {
   list-style: none;
-  margin-bottom: 3rem;
+  margin-bottom: var(--space-lg);
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
 }
 
 .project-features li {
-  background: rgba(255, 107, 107, 0.08);
+  background: var(--accent-subtle-8);
   padding: 0.5rem 1.25rem;
   border-radius: 100px;
   font-size: 0.9rem;
   color: var(--accent);
-  border: 1px solid rgba(255, 107, 107, 0.15);
+  border: 1px solid var(--accent-subtle-15);
   font-weight: 500;
 }
 

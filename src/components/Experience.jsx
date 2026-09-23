@@ -89,6 +89,29 @@ const experiences = [
   }
 ];
 
+const expListVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.1
+    }
+  }
+};
+
+const expItemVariants = {
+  hidden: { opacity: 0, y: 25 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: [0.16, 1, 0.3, 1]
+    }
+  }
+};
+
 const Experience = () => {
   return (
     <section id="experience" className="experience-section">
@@ -98,20 +121,23 @@ const Experience = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
           <h2>Experience.</h2>
         </motion.div>
 
-        <div className="experience-list">
-          {experiences.map((exp, index) => (
+        <motion.div 
+          className="experience-list"
+          variants={expListVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+        >
+          {experiences.map((exp) => (
             <motion.div 
               key={exp.id}
               className="experience-item"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              variants={expItemVariants}
             >
               <div className="exp-left">
                 <h4 className="exp-company">{exp.company}</h4>
@@ -132,7 +158,7 @@ const Experience = () => {
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

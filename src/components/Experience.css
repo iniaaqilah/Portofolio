@@ -26,7 +26,7 @@
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-color: var(--glass-border);
-  box-shadow: 0 20px 40px rgba(255, 107, 107, 0.06);
+  box-shadow: 0 20px 40px var(--accent-glow-subtle);
   transform: translateY(-2px);
 }
 

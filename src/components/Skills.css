@@ -10,12 +10,12 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1rem;
-  margin-top: 4rem;
+  gap: var(--space-sm);
+  margin-top: var(--space-lg);
 }
 
 .skill-tag {
-  padding: 1rem 2rem;
+  padding: 0.85rem 1.75rem;
   background: var(--surface);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -31,9 +31,9 @@
 
 .skill-tag:hover {
   transform: translateY(-4px);
-  background: rgba(30, 37, 53, 0.85);
-  border-color: rgba(255, 107, 107, 0.5);
-  box-shadow: 0 15px 30px rgba(255, 107, 107, 0.15), 0 0 15px var(--accent-glow);
+  background: var(--surface-hover);
+  border-color: var(--accent-border-hover);
+  box-shadow: 0 15px 30px var(--accent-subtle-15), 0 0 15px var(--accent-glow);
   color: var(--accent);
 }
 
