@@ -22,5 +22,5 @@ I focus on creating clean, modern, and user-friendly interfaces.
 - Figma (for UI/UX design)
 
 ## 🔗 Live Preview
-👉 [Visit My Portfolio](https://iniaaqilah.my.id)
+👉 [Visit My Portfolio](https://www.iniaaqilah.my.id/)
 
