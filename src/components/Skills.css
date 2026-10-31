@@ -1,42 +1,159 @@
-.skills-container {
-  background: transparent;
-  padding: 4rem 0;
-  text-align: center;
-  max-width: 1000px;
-  margin: 0 auto;
+.skills-section {
+  position: relative;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.skills-grid {
+.skills-filter-pills {
   display: flex;
+  align-items: center;
+  gap: 0.5rem;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: var(--space-sm);
-  margin-top: var(--space-lg);
+  margin-top: 1.75rem;
 }
 
-.skill-tag {
-  padding: 0.85rem 1.75rem;
-  background: var(--surface);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--glass-border);
-  border-radius: 100px;
+.filter-btn {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
   font-weight: 500;
-  color: var(--text);
-  font-size: 1.05rem;
-  cursor: default;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+  padding: 0.5rem 1.15rem;
+  border-radius: var(--radius-full);
+  background: var(--color-surface);
+  color: var(--color-text-secondary);
+  border: 1px solid var(--color-card-border);
+  cursor: pointer;
+  transition: all 0.25s ease;
 }
 
-.skill-tag:hover {
+.filter-btn:hover {
+  color: #fff;
+  border-color: rgba(108, 99, 255, 0.4);
+}
+
+.filter-btn.active {
+  background: linear-gradient(135deg, rgba(108, 99, 255, 0.3) 0%, rgba(0, 229, 255, 0.2) 100%);
+  color: #fff;
+  border-color: var(--color-secondary);
+  box-shadow: 0 4px 15px rgba(0, 229, 255, 0.2);
+}
+
+/* Skills Cards Grid */
+.skills-deck-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.25rem;
+}
+
+.skill-card-item {
+  position: relative;
+  background: var(--color-surface);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  /* Always visible — GSAP animates in from 0, but we set opacity:1 as default
+     so if ScrollTrigger fires late or misses, cards are still shown */
+  opacity: 1;
+  transform: translateY(0);
+  will-change: opacity, transform;
+}
+
+.skill-card-item:hover {
+  background: var(--color-surface-hover);
+  border-color: var(--color-card-border-hover);
   transform: translateY(-4px);
-  background: var(--surface-hover);
-  border-color: var(--accent-border-hover);
-  box-shadow: 0 15px 30px var(--accent-subtle-15), 0 0 15px var(--accent-glow);
-  color: var(--accent);
+  box-shadow: 0 15px 35px -10px rgba(0, 229, 255, 0.15);
 }
 
-@media (max-width: 992px) {
-  .skills-container { padding: 3rem 0; }
+.skill-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.skill-icon-wrapper {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-sm);
+  background: rgba(108, 99, 255, 0.15);
+  border: 1px solid rgba(108, 99, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-secondary);
+}
+
+.level-pill {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.level-expert {
+  background: rgba(0, 229, 255, 0.12);
+  color: #00e5ff;
+  border: 1px solid rgba(0, 229, 255, 0.3);
+}
+
+.level-advanced {
+  background: rgba(108, 99, 255, 0.15);
+  color: #a5b4fc;
+  border: 1px solid rgba(108, 99, 255, 0.3);
+}
+
+.level-proficient {
+  background: rgba(255, 107, 107, 0.12);
+  color: #fca5a5;
+  border: 1px solid rgba(255, 107, 107, 0.3);
+}
+
+.level-intermediate,
+.level-working-knowledge {
+  background: rgba(255, 255, 255, 0.08);
+  color: #cbd5e1;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.skill-card-name {
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+  margin-top: 0.25rem;
+}
+
+.skill-card-desc {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+.skill-glow-accent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-secondary), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.skill-card-item:hover .skill-glow-accent {
+  opacity: 1;
+}
+
+@media (max-width: 640px) {
+  .skills-deck-grid {
+    grid-template-columns: 1fr;
+  }
 }

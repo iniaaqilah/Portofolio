@@ -1,35 +1,187 @@
-#contact {
-  text-align: center;
-  padding: 10rem 0 8rem;
+.contact-section {
+  position: relative;
+  padding: 6rem 0 7rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.contact-content {
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.contact-content h2 {
-  font-size: clamp(2.5rem, 6vw, 4.5rem);
-  margin-bottom: 1.5rem;
-}
-
-.contact-links {
+.contact-main-card {
+  position: relative;
+  background: var(--color-surface);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-lg);
+  padding: 4.5rem 3.5rem;
+  overflow: hidden;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  gap: 2.5rem;
+  box-shadow: 0 20px 60px -20px rgba(0, 0, 0, 0.7);
+}
+
+.contact-top-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 700px;
+}
+
+.contact-headline {
+  font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.04em;
+}
+
+.contact-lead {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--color-text-secondary);
+}
+
+.contact-actions-deck {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.contact-copy-btn {
+  font-family: var(--font-sans);
+}
+
+/* Metadata deck */
+.contact-meta-deck {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
-  margin-top: 3.5rem;
+  padding-top: 2.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
 }
 
-footer {
-  padding: 3rem 0;
-  text-align: center;
-  color: var(--text-sec);
-  font-size: 0.9rem;
+.meta-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
 }
 
-@media (max-width: 768px) {
-  .contact-links { 
-    flex-direction: column; 
-    align-items: stretch;
+.meta-card-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+}
+
+.meta-card-value {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-text);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.text-green {
+  color: #00ff88;
+}
+
+.mini-pulse {
+  width: 7px;
+  height: 7px;
+  background: #00ff88;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #00ff88;
+  display: inline-block;
+}
+
+/* Ambient glow */
+.contact-glow-orb {
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(circle, rgba(108, 99, 255, 0.22) 0%, rgba(0, 229, 255, 0.1) 40%, transparent 70%);
+  filter: blur(50px);
+  pointer-events: none;
+}
+
+/* Footer */
+.site-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 2.5rem 0;
+  background: rgba(5, 8, 22, 0.8);
+}
+
+.footer-content-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.footer-brand {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--color-text);
+}
+
+.footer-copy {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.footer-right {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.footer-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color 0.25s ease;
+  font-family: var(--font-sans);
+}
+
+.footer-link:hover {
+  color: var(--color-secondary);
+}
+
+.back-to-top-btn {
+  color: var(--color-primary);
+}
+
+.back-to-top-btn:hover {
+  color: #fff;
+}
+
+@media (max-width: 860px) {
+  .contact-main-card {
+    padding: 2.5rem 1.75rem;
+  }
+  .contact-meta-deck {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  .footer-content-row {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }

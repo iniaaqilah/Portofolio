@@ -1,110 +1,300 @@
 .experience-section {
   position: relative;
-  padding-bottom: 8rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.experience-list {
+.experience-filter-pills {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 1.75rem;
+}
+
+/* Timeline Track */
+.timeline-track-wrap {
+  position: relative;
+  padding-left: 2.5rem;
+  margin-top: 1rem;
+}
+
+.timeline-spine-line {
+  position: absolute;
+  top: 10px;
+  bottom: 20px;
+  left: 8px;
+  width: 2px;
+  background: linear-gradient(180deg, #6c63ff 0%, #00e5ff 50%, rgba(255, 77, 157, 0.2) 100%);
+  border-radius: var(--radius-full);
+  box-shadow: 0 0 12px rgba(108, 99, 255, 0.4);
+}
+
+.timeline-list {
   display: flex;
   flex-direction: column;
-  max-width: 900px;
-  margin: 0 auto;
+  gap: 1.75rem;
 }
 
-.experience-item {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 4rem;
-  padding: 3rem;
-  border-radius: var(--radius-sm);
-  border: 1px solid transparent;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  margin-bottom: 1rem;
+.timeline-node-item {
+  position: relative;
 }
 
-.experience-item:hover {
-  background: var(--surface);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-color: var(--glass-border);
-  box-shadow: 0 20px 40px var(--accent-glow-subtle);
-  transform: translateY(-2px);
+/* Node marker */
+.timeline-node-marker {
+  position: absolute;
+  left: -2.5rem;
+  top: 1.75rem;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.exp-left {
+.marker-core {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #00e5ff;
+  border: 2px solid #050816;
+  z-index: 2;
+  box-shadow: 0 0 8px #00e5ff;
+}
+
+.marker-halo {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(0, 229, 255, 0.25);
+  animation: pulseMarker 2.5s infinite;
+}
+
+@keyframes pulseMarker {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.4); opacity: 0.2; }
+}
+
+/* Timeline Card */
+.timeline-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem 2rem;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   display: flex;
   flex-direction: column;
+  gap: 0.85rem;
+  transition: all 0.35s ease;
+}
+
+.timeline-card:hover {
+  background: var(--color-surface-hover);
+  border-color: rgba(0, 229, 255, 0.4);
+  transform: translateX(4px);
+  box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.6), 0 0 25px rgba(0, 229, 255, 0.1);
+}
+
+.timeline-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
   gap: 0.5rem;
 }
 
-.exp-company {
-  font-size: 1.25rem;
+.timeline-period-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--color-text-secondary);
+}
+
+.timeline-category-tag {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
   font-weight: 600;
-  color: var(--text);
-  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--radius-full);
+  background: rgba(108, 99, 255, 0.15);
+  color: #a5b4fc;
+  border: 1px solid rgba(108, 99, 255, 0.3);
 }
 
-.exp-duration {
-  font-size: 0.95rem;
-  color: var(--text-sec);
-  font-weight: 500;
-}
-
-.exp-right {
+.timeline-role-title-row {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.3rem;
 }
 
-.exp-right h3 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--text);
-  margin: 0;
+.timeline-role-text {
+  font-size: 1.25rem;
+  font-weight: 700;
   letter-spacing: -0.02em;
+  color: #ffffff;
 }
 
-.exp-right p {
-  font-size: 1.05rem;
-  line-height: 1.6;
-  color: var(--text-sec);
-  margin: 0;
+.timeline-org-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  flex-wrap: wrap;
 }
 
-.exp-location {
-  font-size: 0.85rem;
-  color: var(--text-sec);
-  opacity: 0.7;
+.org-name-text {
+  color: var(--color-secondary);
+  font-weight: 600;
 }
 
-.exp-bullets {
+.org-dot {
+  color: var(--color-text-muted);
+}
+
+.org-loc-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: var(--color-text-muted);
+  font-size: 0.8rem;
+}
+
+.timeline-body-desc {
+  font-size: 0.94rem;
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+}
+
+@media (max-width: 640px) {
+  .timeline-track-wrap {
+    padding-left: 1.8rem;
+  }
+  .timeline-node-marker {
+    left: -1.8rem;
+  }
+  .timeline-card {
+    padding: 1.25rem;
+  }
+}
+
+/* Bullet list for highlighted internship card */
+.timeline-bullet-list {
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.55rem;
 }
 
-.exp-bullets li {
-  font-size: 1rem;
+.timeline-bullet-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.88rem;
   line-height: 1.6;
-  color: var(--text-sec);
-  padding-left: 1.2rem;
+  color: var(--color-text-secondary);
+}
+
+.bullet-dash {
+  color: #6c63ff;
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 0.05rem;
+}
+
+/* ───── Featured / Internship Highlight Card ───── */
+.timeline-card-featured {
+  background: linear-gradient(135deg, rgba(108, 99, 255, 0.12) 0%, rgba(0, 229, 255, 0.06) 100%);
+  border: 1px solid rgba(108, 99, 255, 0.45);
+  box-shadow: 0 0 40px rgba(108, 99, 255, 0.12), inset 0 0 24px rgba(0, 229, 255, 0.03);
   position: relative;
+  overflow: hidden;
 }
 
-.exp-bullets li::before {
-  content: '–';
+.timeline-card-featured::before {
+  content: '';
   position: absolute;
+  top: 0;
   left: 0;
-  color: var(--accent);
-  font-weight: 600;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #6c63ff, #00e5ff, #ff4d9d);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
 }
 
-@media (max-width: 768px) {
-  .experience-item {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    padding: 2.5rem 0;
-  }
+.timeline-card-featured:hover {
+  border-color: rgba(108, 99, 255, 0.7);
+  transform: translateX(4px);
+  box-shadow: 0 16px 40px -12px rgba(0, 0, 0, 0.7), 0 0 35px rgba(108, 99, 255, 0.18);
+}
+
+/* Highlight node (purple) */
+.marker-highlight .marker-core {
+  background: #6c63ff;
+  box-shadow: 0 0 10px #6c63ff, 0 0 20px rgba(108, 99, 255, 0.5);
+  width: 14px;
+  height: 14px;
+}
+
+.marker-highlight .marker-halo {
+  width: 28px;
+  height: 28px;
+  background: rgba(108, 99, 255, 0.3);
+  animation: pulseMarkerPurple 2s infinite;
+}
+
+@keyframes pulseMarkerPurple {
+  0%, 100% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.5); opacity: 0.2; }
+}
+
+/* Featured badge pill */
+.timeline-featured-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.8rem;
+  border-radius: var(--radius-full);
+  background: linear-gradient(90deg, rgba(108, 99, 255, 0.3), rgba(0, 229, 255, 0.2));
+  border: 1px solid rgba(108, 99, 255, 0.5);
+  color: #c4b5fd;
+  width: fit-content;
+}
+
+/* Internship category tag override */
+.timeline-card-featured .timeline-category-tag {
+  background: rgba(108, 99, 255, 0.25);
+  color: #c4b5fd;
+  border-color: rgba(108, 99, 255, 0.5);
+}
+
+/* Confidential note row */
+.timeline-confidential-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding: 0.65rem 0.9rem;
+  border-radius: var(--radius-md);
+  background: rgba(255, 77, 157, 0.07);
+  border: 1px solid rgba(255, 77, 157, 0.2);
+  font-size: 0.8rem;
+  color: rgba(255, 180, 200, 0.85);
+  line-height: 1.5;
+}
+
+.conf-lock-icon {
+  font-size: 0.9rem;
+  flex-shrink: 0;
+  margin-top: 0.05rem;
 }

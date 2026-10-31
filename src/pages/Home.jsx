@@ -1,24 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Preloader from '../components/Preloader';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
-import Projects from '../components/Projects';
+import About from '../components/About';
 import Skills from '../components/Skills';
+import Projects from '../components/Projects';
 import Experience from '../components/Experience';
 import Contact from '../components/Contact';
-import CursorGlow from '../components/CursorGlow';
 
 const Home = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
   return (
     <>
-      {/* Animated gradient background blobs */}
-      <div className="bg-gradient"></div>
-      <CursorGlow />
+      {/* High-end Creative Cyber Preloader */}
+      {isLoading && <Preloader onComplete={() => setIsLoading(false)} />}
 
+      {/* Ambient Cyber Grid & Glow Layers */}
+      <div className="bg-grid-pattern" aria-hidden="true" />
+      <div className="bg-radial-glow" aria-hidden="true" />
+      <div className="bg-glow-bottom" aria-hidden="true" />
+
+      {/* Floating Navigation */}
       <Navbar />
-      <main>
+
+      {/* Main Content Sections */}
+      <main id="main-content">
         <Hero />
-        <Projects />
+        <About />
         <Skills />
+        <Projects />
         <Experience />
         <Contact />
       </main>
