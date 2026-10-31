@@ -22,5 +22,5 @@ I focus on creating clean, modern, and user-friendly interfaces.
 - Figma (for UI/UX design)
 
 ## 🔗 Live Preview
-👉 [Visit My Portfolio](https://your-link.vercel.app)
+👉 [Visit My Portfolio](https://iniaaqilah.my.id.vercel.app)
 
