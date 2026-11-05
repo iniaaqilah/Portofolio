@@ -41,7 +41,7 @@ const Contact = () => {
           <div className="contact-main-card">
             {/* Header info */}
             <div className="contact-top-content">
-              <span className="mono-tag">05 // GET IN TOUCH</span>
+              <span className="mono-tag">GET IN TOUCH</span>
               <h2 className="contact-headline">
                 Let's Build Something <span className="gradient-text">Extraordinary.</span>
               </h2>

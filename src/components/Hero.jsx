@@ -154,7 +154,7 @@ const Hero = () => {
             <div className="tech-stack-strip">
               <span className="tech-strip-label">TECH & TOOLS:</span>
               <div className="tech-pill-list">
-                {['Figma', 'Framer', 'React', 'Flutter', 'Tailwind', 'Laravel'].map((tech) => (
+                {['Figma', 'Flutter', 'React', 'Expo', 'Tailwind', 'Supabase', 'Laravel'].map((tech) => (
                   <span key={tech} className="tech-pill-chip">{tech}</span>
                 ))}
               </div>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Preloader from '../components/Preloader';
 import Navbar from '../components/Navbar';
+import CursorGlow from '../components/CursorGlow';
 import Hero from '../components/Hero';
 import About from '../components/About';
 import Skills from '../components/Skills';
@@ -20,6 +21,7 @@ const Home = () => {
       <div className="bg-grid-pattern" aria-hidden="true" />
       <div className="bg-radial-glow" aria-hidden="true" />
       <div className="bg-glow-bottom" aria-hidden="true" />
+      <CursorGlow />
 
       {/* Floating Navigation */}
       <Navbar />

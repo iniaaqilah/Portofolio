@@ -24,7 +24,7 @@
 }
 
 .lead-paragraph strong {
-  color: #fff;
+  color: var(--color-text);
 }
 
 .highlight-text {
@@ -60,7 +60,7 @@
   font-style: italic;
   font-size: 0.925rem;
   line-height: 1.6;
-  color: #e2e8f0;
+  color: var(--color-text);
 }
 
 /* Bento Cards Right */

@@ -59,7 +59,7 @@ const About = () => {
       <div className="container">
         {/* Header */}
         <div className="section-header-wrap about-header">
-          <span className="mono-tag">01 // ABOUT ME</span>
+          <span className="mono-tag">ABOUT ME</span>
           <h2 className="section-title">
             Bridging Logic and Empathy through <span className="gradient-text">Design.</span>
           </h2>
@@ -89,7 +89,7 @@ const About = () => {
             <div className="about-quote-box">
               <Sparkles size={18} className="quote-icon" />
               <p className="quote-text">
-                "Good design is not just what looks good and feels good. Good design is what works seamlessly."
+                "Desain yang efektif memadukan riset kebutuhan pengguna dengan ketelitian rekayasa teknis."
               </p>
             </div>
           </div>

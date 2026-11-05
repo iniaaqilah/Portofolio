@@ -25,7 +25,7 @@ const projectsData = [
     title: 'Wudi.',
     subtitle: 'Task & Project Management Application',
     category: 'Mobile App',
-    badge: '🚀 Production Live · Google Play',
+    badge: 'Production Live · Google Play',
     desc: 'Aplikasi manajemen tugas dan proyek yang dipublikasikan di Google Play Store. Dirancang untuk meningkatkan efisiensi dan produktivitas tim maupun individu melalui antarmuka pengguna yang terstruktur dan responsif.',
     problem: 'Pengguna sering kesulitan melacak progres tugas dan berkolaborasi dalam tim kecil akibat antarmuka aplikasi manajemen proyek yang terlalu rumit dan kaku.',
     solution: 'Membangun desain antarmuka berbasis Kanban & checklist dinamis dengan hierarki visual yang jelas, waktu respons instan, dan onboarding ramah pemula.',
@@ -43,7 +43,7 @@ const projectsData = [
     title: 'Invest.aja',
     subtitle: 'Investment & Financial Literacy Platform',
     category: 'UI/UX Design',
-    badge: '📊 Fintech Research & System',
+    badge: 'Fintech Research & System',
     desc: 'Konsep platform investasi digital modern dengan pendekatan inklusif bagi investor pemula hingga berpengalaman. Memimpin tim perancangan antarmuka, user persona, serta visual flow transaksi.',
     problem: 'Tingginya angka kegagalan investasi pemula akibat minimnya edukasi terintegrasi dan grafik portofolio yang membingungkan.',
     solution: 'Menghadirkan antarmuka modular dengan visualisasi grafik interaktif, simulasi risiko terpandu, dan ringkasan portofolio real-time.',
@@ -61,7 +61,7 @@ const projectsData = [
     title: 'TBC Tracker',
     subtitle: 'Tuberculosis Treatment & Medication Companion',
     category: 'Mobile App',
-    badge: '🩺 Health Tech Companion',
+    badge: 'Health Tech Companion',
     desc: 'Aplikasi pendamping kesehatan pasien tuberkulosis untuk memantau konsistensi konsumsi obat, pencatatan gejala harian, serta pengingat jadwal minum obat guna mempercepat proses pemulihan.',
     problem: 'Pengobatan TB membutuhkan kepatuhan minum obat harian selama minimal 6 bulan berturut-turut tanpa boleh terputus.',
     solution: 'Fitur reminder minum obat cerdas dengan verifikasi harian, pencatatan efek samping, dan tombol darurat kontak fasilitas kesehatan terdekat.',
@@ -79,7 +79,7 @@ const projectsData = [
     title: 'RoomPens',
     subtitle: 'Campus Room & Class Reservation System',
     category: 'Web Platform',
-    badge: '🏛️ Campus Infrastructure',
+    badge: 'Campus Infrastructure',
     desc: 'Platform web manajemen peminjaman ruang kelas dan laboratorium di lingkungan Politeknik Elektronika Negeri Surabaya. Mempermudah dosen dan mahasiswa dalam mengecek ketersediaan ruangan secara real-time.',
     problem: 'Jadwal penggunaan laboratorium kampus sering kali bentrok dan proses peminjaman manual via form kertas memakan waktu berhari-hari.',
     solution: 'Dashboard terpusat berbasis web dengan visualisasi kalender live, status ketersediaan ruangan, dan notifikasi persetujuan instan.',
@@ -97,7 +97,7 @@ const projectsData = [
     title: 'MOTTO-audit',
     subtitle: 'Paperless Genba Audit System — 5S, Change Point & License',
     category: 'Internship',
-    badge: '🔒 Internal System · PT JAI',
+    badge: 'Internal System · PT JAI',
     isConfidential: true,
     desc: 'Sistem manajemen audit genba paperless yang mendigitalisasi pencatatan manual di lantai produksi. Mencakup tiga pilar: 5S Standard, Change Point Management (perubahan parameter 4M), dan License System (sertifikasi kompetensi operator). Auditor mengakses dari iPad di lantai produksi; admin dari komputer kantor.',
     problem: 'Proses audit genba dilakukan dengan formulir kertas — data tidak real-time dan sulit dianalisis secara terpusat.',
@@ -117,7 +117,7 @@ const projectsData = [
     title: 'Defect & Rework Monitor',
     subtitle: 'Unified QA Monitoring — Internal Defect (Final & Pre Assy) + Rework (Final Assy)',
     category: 'Internship',
-    badge: '🔒 Internal System · PT JAI',
+    badge: 'Internal System · PT JAI',
     isConfidential: true,
     desc: 'Platform monitoring QA terpadu yang menggabungkan pelaporan internal defect dan rework dalam satu sistem. Internal defect mencakup Final Assy dan Pre Assy; rework hanya di Final Assy. Operator menginput dari ponsel; dashboard admin real-time menampilkan DPM, Pareto, dan drill-down per konveyor/carline.',
     problem: 'Internal defect direkap manual di Excel, sementara rework dikelola di sistem tersendiri yang terpisah — sehingga tidak ada visibilitas terpadu antar keduanya di area produksi.',
@@ -195,7 +195,7 @@ const Projects = () => {
       <div className="container">
         {/* Header */}
         <div className="section-header-wrap projects-header-box">
-          <span className="mono-tag">03 // SELECTED WORK</span>
+          <span className="mono-tag">SELECTED WORK</span>
           <h2 className="section-title">
             Featured Case Studies & <span className="gradient-text">Projects.</span>
           </h2>
@@ -231,6 +231,7 @@ const Projects = () => {
                 {/* Visual Preview Side */}
                 <div
                   className="project-gallery-box"
+                  data-cursor={project.isConfidential ? "DETAILS ↗" : "VIEW ↗"}
                   onClick={() => setSelectedProject(project)}
                   title="Klik untuk melihat Case Study"
                   style={{ cursor: 'pointer' }}
@@ -349,7 +350,7 @@ const Projects = () => {
                       <span className="conf-internal-badge">INTERNAL SYSTEM</span>
                       <h4 className="conf-system-title">{selectedProject.internalLabel || selectedProject.title}</h4>
                       <p className="conf-company-label">PT Jatim Autocomp Indonesia</p>
-                      <p className="conf-no-visual-note">Tampilan sistem tidak dipublikasikan · sistem internal perusahaan</p>
+                      <p className="conf-no-visual-note">Tampilan sistem tidak dipublikasikan Â· sistem internal perusahaan</p>
                     </div>
                   </div>
                 ) : (

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, ArrowUpRight, Sparkles } from 'lucide-react';
+import { Menu, X, ArrowUpRight, Sparkles, Sun, Moon } from 'lucide-react';
 import './Navbar.css';
 
 const navItems = [
@@ -15,6 +15,23 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
+  const [theme, setTheme] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem('portfolio-theme') || 'dark';
+    }
+    return 'dark';
+  });
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    try {
+      localStorage.setItem('portfolio-theme', theme);
+    } catch (e) {}
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme((prev) => (prev === 'light' ? 'dark' : 'light'));
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -90,6 +107,15 @@ const Navbar = () => {
 
           {/* Right Action: Available & Connect */}
           <div className="nav-actions">
+            <button
+              className="theme-toggle-btn"
+              onClick={toggleTheme}
+              aria-label={`Beralih ke mode ${theme === 'light' ? 'Cyber Dark' : 'Soft Light'}`}
+              title={`Mode: ${theme === 'light' ? 'Soft Light' : 'Cyber Dark'} (Klik untuk switch)`}
+            >
+              {theme === 'light' ? <Moon size={15} /> : <Sun size={15} />}
+            </button>
+
             <a
               href="https://www.linkedin.com/in/aqilah-salamatuddin/"
               target="_blank"
@@ -123,6 +149,15 @@ const Navbar = () => {
       {/* Mobile Drawer */}
       {isOpen && (
         <div className="mobile-drawer">
+          <div className="mobile-drawer-header">
+            <button
+              className="theme-toggle-btn mobile-theme-btn"
+              onClick={toggleTheme}
+            >
+              {theme === 'light' ? <Moon size={14} /> : <Sun size={14} />}
+              <span>{theme === 'light' ? 'Mode: Soft Light' : 'Mode: Cyber Dark'}</span>
+            </button>
+          </div>
           <ul className="mobile-list">
             {navItems.map((item) => (
               <li key={item.name}>

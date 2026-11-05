@@ -157,7 +157,7 @@ const Experience = () => {
       <div className="container">
         {/* Header */}
         <div className="section-header-wrap experience-header-box">
-          <span className="mono-tag">04 // JOURNEY TIMELINE</span>
+          <span className="mono-tag">JOURNEY & MILESTONES</span>
           <h2 className="section-title">
             Experience, Leadership &amp; <span className="gradient-text">Milestones.</span>
           </h2>

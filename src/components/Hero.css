@@ -95,7 +95,7 @@
 
 .typewriter-text {
   font-weight: 600;
-  color: #ffffff;
+  color: var(--color-text);
 }
 
 .typewriter-caret {
